@@ -8,7 +8,9 @@ function startingQuestions() {
             type: "list",
             name:"startingQuestions",
             message: "Please choose an option",
-            choices
+            choices: [
+                "View Departments"
+            ]
         }
     )
 }
