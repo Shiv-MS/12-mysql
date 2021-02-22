@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+const util = require("util");
 require("dotenv").config();
 
 const connection = mysql.createConnection({
@@ -16,5 +17,8 @@ connection.connect(function (err) {
 
     console.log('connected as id ' + connection.threadId);
 });
+
+// This allows us to use the async/await syntax
+connection.query = util.promisify(connection.query);
 
 module.exports = connection;
